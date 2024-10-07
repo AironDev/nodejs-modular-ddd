@@ -3,7 +3,6 @@ import { container } from 'tsyringe';
 import { AuthApplication } from '../../application/auth.application';
 import { AuthController } from '../controllers/auth.controller';
 
-// After DI setup in your app.ts
 export function accountRouter(): Router {
     const router = Router();
     const authApplication = container.resolve<AuthApplication>('AuthApplication');
