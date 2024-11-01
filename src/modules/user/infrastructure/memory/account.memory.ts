@@ -1,7 +1,7 @@
-import { AccountRepository } from '../../domain/interfaces/account_repository.interface';
+import { UserRepository } from '../../domain/interfaces/repository.interface';
 import { User } from '../../domain/models/user';
 
-export class AuthRepositoryMemory implements AccountRepository {
+export class AuthRepositoryMemory implements UserRepository {
   private users: User[] = [];
 
   async findByEmail(email: string): Promise<User | null> {

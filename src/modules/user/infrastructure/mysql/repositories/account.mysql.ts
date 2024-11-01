@@ -1,11 +1,11 @@
 // infrastructure/repositories/account.mysql.ts
 import { Connection } from 'mysql2/promise';
-import { AccountRepository } from '../../../domain/interfaces/account_repository.interface';
+import { UserRepository } from '../../../domain/interfaces/repository.interface';
 import { User } from '../../../domain/models/user';
 import { injectable, inject } from 'tsyringe';
 
 @injectable()
-export class MysqlAccountRepository implements AccountRepository {
+export class MysqlAccountRepository implements UserRepository {
   constructor(@inject('MysqlConnection') private mysqlConnection: Connection) {}
 
   async save(user: User): Promise<User> {
