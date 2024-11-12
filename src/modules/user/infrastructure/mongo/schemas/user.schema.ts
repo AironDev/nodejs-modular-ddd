@@ -23,14 +23,3 @@ UserSchema.methods.toDomain = function (): User {
 
 // Create the model
 export const UserModel = mongoose.model<IUser>('User', UserSchema);
-
-
-
-
-mongoose.connection.on('connected', () => {
-  console.log('MongoDB connected successfully');
-});
-
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB connection error:', err);
-});

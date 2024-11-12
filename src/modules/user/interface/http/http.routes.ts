@@ -1,13 +1,12 @@
 import { Router } from 'express';
 import { container } from 'tsyringe';
-import { AuthApplication } from '../../application/auth.application';
+import { AuthService } from '../../services/auth.service';
 import { AuthController } from '../controllers/auth.controller';
 
-// After DI setup in your app.ts
-export function accountRouter(): Router {
+export function userRouter(): Router {
     const router = Router();
-    const authApplication = container.resolve<AuthApplication>('AuthApplication');
-    const authController = new AuthController(authApplication);
+    const authService = container.resolve<AuthService>('AuthService');
+    const authController = new AuthController(authService);
 
     router.post('/login', (req, res) => authController.login(req, res));
     router.post('/register', (req, res) => authController.register(req, res));
