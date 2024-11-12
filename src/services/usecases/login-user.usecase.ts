@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 import { UserRepository } from '../../domain/interfaces/repository.interface';
 import { User } from '../../domain/models/user';
-import JWT from '../../../../shared/jwt/jwt';
 import { UserLoginResponseDTO } from '../../domain/interfaces/dto.interface';
+import JWT from '../../shared/jwt/jwt';
 
 @injectable()
 export class LoginUserUseCase {

@@ -2,7 +2,7 @@ import 'reflect-metadata'; // Import reflect-metadata at the top
 import express, { Application } from 'express';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
-import { UserModule } from './modules/user/user.module';
+import { Main } from './main';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { setupContainer } from './shared/container'; // Ensure this is imported
@@ -23,12 +23,12 @@ const startServer = async () => {
     try {
         await setupContainer();
 
-        app.use('/api/v1/user', UserModule.userRouter()); // Ensure this is used after DI setup
+        app.use('/api/v1/user', Main.userRouter()); // Ensure this is used after DI setup
 
         // Set up Apollo Server
         const server = new ApolloServer({
-            typeDefs: [UserModule.authTypeDefs],
-            resolvers: [UserModule.authResolvers],
+            typeDefs: [Main.authTypeDefs],
+            resolvers: [Main.authResolvers],
         });
 
         await server.start();

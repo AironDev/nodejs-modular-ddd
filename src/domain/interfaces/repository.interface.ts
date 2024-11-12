@@ -1,4 +1,3 @@
-// domain/interfaces/account_repository.interface.ts
 import { User } from '../models/user';
 
 export interface UserRepository {

@@ -1,7 +1,7 @@
 import { userRouter } from './interface/http/http.routes';
 import { authTypeDefs, authResolvers } from './interface/graphql/account.graphql.schema';
 
-export const UserModule = {
+export const Main = {
     userRouter,
     authTypeDefs,
     authResolvers
